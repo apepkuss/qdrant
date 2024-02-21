@@ -8,6 +8,7 @@ fn main() -> std::io::Result<()> {
 
     // Build gRPC bits from proto file
     tonic_build::configure()
+        .protoc_arg("--experimental_allow_proto3_optional")
         // Because we want to attach all validation rules to the generated gRPC types, we must do
         // so by extending the builder. This is ugly, but better than manually implementing
         // `Validation` for all these types and seems to be the best approach. The line below
